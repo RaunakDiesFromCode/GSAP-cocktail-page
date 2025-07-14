@@ -1,8 +1,7 @@
-import React from "react";
-import { navLinks } from "../../constants";
-import Logo from "./ui/logo";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+import { navLinks } from "../../constants/index.js";
 
 const Navbar = () => {
     useGSAP(() => {
@@ -10,9 +9,6 @@ const Navbar = () => {
             scrollTrigger: {
                 trigger: "nav",
                 start: "bottom top",
-                end: "bottom top",
-                scrub: true,
-                markers: true,
             },
         });
 
@@ -32,8 +28,10 @@ const Navbar = () => {
         <nav>
             <div>
                 <a href="#home" className="flex items-center gap-2">
-                    <Logo />
+                    <img src="/images/logo.png" alt="logo" />
+                    <p>Velvet Pour</p>
                 </a>
+
                 <ul>
                     {navLinks.map((link) => (
                         <li key={link.id}>
@@ -45,5 +43,4 @@ const Navbar = () => {
         </nav>
     );
 };
-
 export default Navbar;
